@@ -1,7 +1,7 @@
 import time
 from typing import Dict
 
-
+# this is rate limting at the application level, /user, /api-key
 class FixedWindowRateLimiter:
     def __init__(self, max_requests: int, interval_seconds: int):
         self.max_requests = max_requests
@@ -37,6 +37,6 @@ class FixedWindowRateLimiter:
 rl = FixedWindowRateLimiter(max_requests=5, interval_seconds=5)
 
 for i in range(12):
-    allowed = rl.is_allowed("user1")
+    allowed = rl.is_allowed(f"user")
     print(f"Request {i+1}: {allowed}")
-    time.sleep(1)
+    time.sleep(0.5)
