@@ -39,4 +39,4 @@ rl = FixedWindowRateLimiter(max_requests=5, interval_seconds=5)
 for i in range(12):
     allowed = rl.is_allowed("user1")
     print(f"Request {i+1}: {allowed}")
-    # time.sleep(1)
+    time.sleep(1)
